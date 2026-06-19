@@ -1,0 +1,83 @@
+{
+  "expo": {
+    "name": "House-By-Us",
+    "slug": "house-by-us",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FAFAF8"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "zw.co.housebyus.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "House-By-Us uses your location to show listings near you on the map.",
+        "NSLocationAlwaysUsageDescription": "House-By-Us uses your location to find nearby listings.",
+        "NSPhotoLibraryUsageDescription": "House-By-Us needs photo access so you can upload listing images.",
+        "NSCameraUsageDescription": "House-By-Us needs camera access so you can photograph your property.",
+        "NSMicrophoneUsageDescription": "House-By-Us needs microphone access for video recording."
+      },
+      "config": {
+        "googleMapsApiKey": "YOUR_IOS_GOOGLE_MAPS_API_KEY"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FAFAF8"
+      },
+      "package": "zw.co.housebyus.app",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "CAMERA",
+        "RECORD_AUDIO"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "YOUR_ANDROID_GOOGLE_MAPS_API_KEY"
+        }
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "react-native-maps",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "House-By-Us needs access to your photos to upload listing images.",
+          "cameraPermission": "House-By-Us needs your camera to photograph your property."
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35,
+            "buildToolsVersion": "35.0.0"
+          },
+          "ios": {
+            "deploymentTarget": "15.1"
+          }
+        }
+      ]
+    ],
+    "extra": {
+      "apiBaseUrl": "https://api.housebyus.co.zw",
+      "s3Bucket": "house-by-us-media",
+      "eas": {
+        "projectId": "YOUR_EAS_PROJECT_ID"
+      }
+    }
+  }
+}
