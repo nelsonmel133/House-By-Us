@@ -1,1 +1,29 @@
+# Dependencies
+node_modules/
+.npm/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Environment variables — never commit real secrets
+.env
+.env.local
+.env.*.local
+
+# Drizzle
+drizzle/migrations/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Package manager lockfiles from other tools (keep package-lock.json only)
+yarn.lock
+pnpm-lock.yaml
 
