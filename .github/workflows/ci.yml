@@ -1,0 +1,86 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ── Backend ─────────────────────────────────────────────────────────────────
+  backend:
+    name: Backend — typecheck & build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --filter @house-by-us/server...
+
+      - name: Typecheck
+        run: pnpm --filter @house-by-us/server tsc --noEmit
+
+      - name: Build
+        run: pnpm --filter @house-by-us/server build
+
+  # ── Client ──────────────────────────────────────────────────────────────────
+  client:
+    name: Client — typecheck & build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --filter house-by-us-client...
+
+      - name: Typecheck
+        run: pnpm --filter house-by-us-client tsc --noEmit
+
+      - name: Build
+        run: pnpm --filter house-by-us-client build
+        env:
+          VITE_API_URL: https://api.housebyus.co.zw/trpc
+          VITE_USE_MOCK_DATA: false
+
+  # ── Mobile ──────────────────────────────────────────────────────────────────
+  mobile:
+    name: Mobile — typecheck
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --filter house-by-us...
+
+      - name: Typecheck
+        run: pnpm --filter house-by-us ts:check
