@@ -1,0 +1,27 @@
+{
+  "name": "house-by-us",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Three-sided student accommodation marketplace for Harare, Zimbabwe",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @house-by-us/server dev",
+    "dev:client": "pnpm --filter house-by-us-client dev",
+    "dev:all": "concurrently \"pnpm dev\" \"pnpm dev:client\"",
+    "build": "pnpm --filter @house-by-us/server build",
+    "build:client": "pnpm --filter house-by-us-client build",
+    "start": "pnpm --filter @house-by-us/server start",
+    "db:push": "pnpm --filter @house-by-us/drizzle db:push",
+    "db:generate": "pnpm --filter @house-by-us/drizzle db:generate",
+    "db:studio": "pnpm --filter @house-by-us/drizzle db:studio",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r tsc --noEmit"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "typescript": "^5.4.5"
+  }
+}
