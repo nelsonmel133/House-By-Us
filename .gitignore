@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+build/
+.expo/
+.expo-shared/
+
+# Environment files — NEVER commit real secrets
+.env
+.env.local
+.env.production
+
+# Drizzle generated migrations (commit these in a real project)
+backend/drizzle/migrations/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Vite cache
+client/.vite/
+
+# TypeScript
+*.tsbuildinfo
