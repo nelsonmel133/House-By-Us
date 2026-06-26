@@ -1,12 +1,17 @@
 {
-  "name": "house-by-us",
+  "name": "@house-by-us/shared",
   "version": "1.0.0",
   "private": true,
-  "workspaces": ["server", "shared", "drizzle"],
+  "description": "Shared types and constants — no runtime deps, pure TypeScript",
+  "main": "./index.ts",
+  "types": "./index.ts",
   "scripts": {
-    "dev": "npm run dev --workspace=server",
-    "build": "npm run build --workspace=server",
-    "db:push": "npm run db:push --workspace=drizzle",
-    "db:studio": "npm run db:studio --workspace=drizzle"
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {
+    "@house-by-us/drizzle": "workspace:*"
   }
 }
