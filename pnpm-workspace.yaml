@@ -1,0 +1,6 @@
+packages:
+  - "backend/server"
+  - "backend/drizzle"
+  - "backend/shared"
+  - "client"
+  - "mobile"
