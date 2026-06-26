@@ -20,7 +20,7 @@ import {
   approvals,
 } from "@house-by-us/drizzle";
 import { router, adminProcedure } from "../middleware/trpc";
-import { dispatchNotification } from "../lib/notifications";
+import { dispatchNotification } from "../lib/notification";
 import { PLATFORM_FEES_USD } from "@house-by-us/shared";
 
 // ── Zod schemas ───────────────────────────────────────────────────────────────
