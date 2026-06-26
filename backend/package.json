@@ -1,1 +1,14 @@
-
+{
+  "name": "@house-by-us/backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend workspace root — contains server, drizzle, and shared sub-packages",
+  "scripts": {
+    "dev": "pnpm --filter @house-by-us/server dev",
+    "build": "pnpm --filter @house-by-us/server build",
+    "start": "pnpm --filter @house-by-us/server start",
+    "db:push": "pnpm --filter @house-by-us/drizzle db:push",
+    "db:generate": "pnpm --filter @house-by-us/drizzle db:generate",
+    "db:studio": "pnpm --filter @house-by-us/drizzle db:studio"
+  }
+}
