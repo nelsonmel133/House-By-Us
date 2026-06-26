@@ -23,7 +23,7 @@ import {
   landlordProcedure,
 } from "../middleware/trpc";
 import { encrypt, decrypt } from "../lib/crypto";
-import { dispatchNotification } from "../lib/notifications";
+import { dispatchNotification } from "../lib/notification";
 import { SUBSCRIPTION_LIMITS } from "@house-by-us/shared";
 
 // ── Zod schemas ───────────────────────────────────────────────────────────────
