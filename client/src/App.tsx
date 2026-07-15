@@ -3,10 +3,19 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { trpc, getTrpcClient, queryClient } from "@/lib/trpc";
 import { TooltipProvider } from "@/components/ui/primitives";
 import { AuthProvider } from "@/lib/auth-context";
+import { AdminRoute } from "@/components/admin-route";
 import SearchPage from "@/pages/search";
 import ListingDetailPage from "@/pages/listing-detail";
 import LandlordDashboardPage from "@/pages/dashboard-landlord";
 import AdminDashboardPage from "@/pages/dashboard-admin";
+
+function ProtectedAdminDashboard() {
+  return (
+    <AdminRoute>
+      <AdminDashboardPage />
+    </AdminRoute>
+  );
+}
 
 function NotFound() {
   return (
@@ -31,7 +40,7 @@ export default function App() {
               <Route path="/search" component={SearchPage} />
               <Route path="/listings/:id" component={ListingDetailPage} />
               <Route path="/dashboard/landlord" component={LandlordDashboardPage} />
-              <Route path="/dashboard/admin" component={AdminDashboardPage} />
+              <Route path="/dashboard/admin" component={ProtectedAdminDashboard} />
               <Route component={NotFound} />
             </Switch>
           </AuthProvider>

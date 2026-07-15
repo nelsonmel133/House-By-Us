@@ -1,13 +1,14 @@
 import { useMemo, useState } from "react";
 import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { Map as MapIcon, List, Home, LogOut } from "lucide-react";
+import { Map as MapIcon, List, Home, LogOut, ShieldCheck } from "lucide-react";
 import { SearchFilterBar } from "@/components/search/search-filter-bar";
 import { ListingCard } from "@/components/search/listing-card";
 import { ListingsMap } from "@/components/map/listings-map";
 import { Button } from "@/components/ui/button";
 import {
   Avatar,
+  AvatarImage,
   AvatarFallback,
   Popover,
   PopoverContent,
@@ -30,7 +31,7 @@ const DEFAULT_FILTERS: SearchFilters = {
 
 export default function SearchPage() {
   const [, navigate] = useLocation();
-  const { isAuthenticated, user, requireAuth, signOut } = useAuth();
+  const { isAuthenticated, isAdmin, user, requireAuth, signOut } = useAuth();
   const [filters, setFilters] = useState<SearchFilters>(DEFAULT_FILTERS);
   const [activeListingId, setActiveListingId] = useState<string | null>(null);
   const [mobileView, setMobileView] = useState<"list" | "map">("list");
@@ -73,12 +74,21 @@ export default function SearchPage() {
               <PopoverTrigger asChild>
                 <button className="flex items-center gap-2 rounded-full pl-1 pr-2 py-1 hover:bg-ink-900/5">
                   <Avatar className="h-7 w-7">
+                    {user!.photoUrl && <AvatarImage src={user!.photoUrl} alt="" />}
                     <AvatarFallback>{initials(user!.name)}</AvatarFallback>
                   </Avatar>
                   <span className="text-sm font-medium text-ink-900">{user!.name.split(" ")[0]}</span>
                 </button>
               </PopoverTrigger>
               <PopoverContent className="w-48" align="end">
+                {isAdmin && (
+                  <button
+                    onClick={() => navigate("/dashboard/admin")}
+                    className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm text-ink-600 hover:bg-sand-100"
+                  >
+                    <ShieldCheck className="h-3.5 w-3.5" /> Admin dashboard
+                  </button>
+                )}
                 <button
                   onClick={signOut}
                   className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm text-ink-600 hover:bg-sand-100"
