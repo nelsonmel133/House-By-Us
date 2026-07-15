@@ -1,0 +1,24 @@
+{
+  "name": "@house-by-us/drizzle",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Drizzle ORM schema, migrations, and database connection",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "db:push": "drizzle-kit push",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.31.2",
+    "mysql2": "^3.10.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "drizzle-kit": "^0.22.7",
+    "typescript": "^5.4.5"
+  }
+}
