@@ -4,6 +4,7 @@ import { ShieldCheck, MapPin, Star, ArrowLeft } from "lucide-react";
 import { MediaGallery } from "@/components/listing/media-gallery";
 import { ListingSpecsCard } from "@/components/listing/listing-specs-card";
 import { ContactLandlordWidget } from "@/components/listing/contact-landlord-widget";
+import { SiteFooterContact } from "@/components/site-contact";
 import { Badge } from "@/components/ui/badge";
 import { MOCK_LISTINGS } from "@/lib/mock-data";
 
@@ -76,6 +77,8 @@ export default function ListingDetailPage() {
           </div>
         </div>
       </div>
+
+      <SiteFooterContact />
     </div>
   );
 }

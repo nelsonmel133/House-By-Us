@@ -15,6 +15,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/primitives";
 import { useAuth } from "@/lib/auth-context";
+import { ContactPopoverButton } from "@/components/site-contact";
 import { MOCK_LISTINGS } from "@/lib/mock-data";
 import { initials } from "@/lib/utils";
 import type { SearchFilters } from "@/types/domain";
@@ -66,6 +67,7 @@ export default function SearchPage() {
           </span>
         </a>
         <div className="hidden items-center gap-3 md:flex">
+          <ContactPopoverButton />
           <Button variant="ghost" size="sm" onClick={handleListProperty}>
             List your property
           </Button>

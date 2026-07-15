@@ -5,6 +5,7 @@ import { AdminDetailPane } from "@/components/dashboard/admin/admin-detail-pane"
 import { AdminAnalyticsBreakdown } from "@/components/dashboard/admin/admin-analytics-breakdown";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/primitives";
 import { useAuth } from "@/lib/auth-context";
+import { ContactPopoverButton } from "@/components/site-contact";
 import { MOCK_ADMIN_QUEUE } from "@/lib/mock-data";
 import type { AdminQueueItem } from "@/types/domain";
 
@@ -49,6 +50,7 @@ export default function AdminDashboardPage() {
           </span>
         </a>
         <div className="flex items-center gap-4">
+          <ContactPopoverButton />
           <Tabs value={tab} onValueChange={setTab}>
             <TabsList>
               <TabsTrigger value="queue">Review queue</TabsTrigger>

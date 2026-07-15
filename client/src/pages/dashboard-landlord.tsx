@@ -8,6 +8,7 @@ import { MetricCardsRow } from "@/components/dashboard/landlord/metric-cards";
 import { LeadsInbox } from "@/components/dashboard/landlord/leads-inbox";
 import { MonetizationPanel } from "@/components/dashboard/landlord/monetization-panel";
 import { ListingCreationWizard } from "@/components/dashboard/landlord/listing-form/listing-creation-wizard";
+import { SiteFooterContact } from "@/components/site-contact";
 import { MOCK_LANDLORD_METRICS, MOCK_LEADS } from "@/lib/mock-data";
 
 export default function LandlordDashboardPage() {
@@ -89,6 +90,8 @@ export default function LandlordDashboardPage() {
           </>
         )}
       </main>
+
+      <SiteFooterContact />
     </div>
   );
 }
